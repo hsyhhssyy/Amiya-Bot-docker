@@ -42,3 +42,8 @@ jobs:
       run: |
         pwd
         docker build . --file Amiya-Bot-docker/Dockerfile --tag hsyhhssyy/amiyabot:$(date +%s)
+
+    - name: Push the Docker image
+      run: |
+        pwd
+        docker push hsyhhssyy/amiyabot:$(date +%s)
