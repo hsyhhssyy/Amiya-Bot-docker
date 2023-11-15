@@ -98,6 +98,8 @@ RUN sed -i '/amiyabot==[0-9]*\.[0-9]*\.[0-9]*/d' requirements.txt
 
 RUN python3.8 -m pip install -r requirements.txt
 
+RUN ls -ltr
+
 # 使用dev-core
 
 WORKDIR /amiyabot-core
