@@ -38,12 +38,13 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build the Docker image
+    - name: Build and Push Docker Image
       run: |
         pwd
-        docker build . --file Amiya-Bot-docker/Dockerfile --tag hsyhhssyy/amiyabot:$(date +%s)
-
-    - name: Push the Docker image
-      run: |
-        pwd
-        docker push hsyhhssyy/amiyabot:$(date +%s)
+        # Read version from the file
+        VERSION=$(cat ./Amiya-Bot/.github/publish.txt | sed 's/v//')
+        echo "Version: $VERSION"
+        # Build and tag the docker image
+        docker build . --file Amiya-Bot-docker/Dockerfile --tag hsyhhssyy/amiyabot:$VERSION
+        # Push the docker image
+        docker push hsyhhssyy/amiyabot:$VERSION
