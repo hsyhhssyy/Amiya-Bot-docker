@@ -91,10 +91,6 @@ RUN python3.8 -m pip install wordcloud==1.8.2.2
 
 # 安装阿米娅bot的依赖
 
-RUN ls -ltr
-
-RUN tree
-
 COPY ./Amiya-Bot/requirements.txt requirements.txt
 
 # 删除版本号依赖
