@@ -91,20 +91,18 @@ RUN python3.8 -m pip install wordcloud==1.8.2.2
 
 # 安装阿米娅bot的依赖
 
-COPY ./Amiya-Bot/requirements.txt requirements.txt
+COPY ../Amiya-Bot/requirements.txt requirements.txt
 
-# 删除版本号依赖
+# 删除对Core的依赖
 RUN sed -i '/amiyabot==[0-9]*\.[0-9]*\.[0-9]*/d' requirements.txt
 
 RUN python3.8 -m pip install -r requirements.txt
 
 # 使用dev-core
 
+COPY ../Amiya-Bot-core/ /amiyabot-core/
+
 WORKDIR /amiyabot-core
-
-COPY ./Amiya-Bot-core/ ./Amiya-Bot-core/
-
-WORKDIR /amiyabot-core/Amiya-Bot-core
 
 RUN echo "n\n0.0.1" > inputs.txt && \
     python3.8 setup.py bdist_wheel < inputs.txt
@@ -117,7 +115,7 @@ RUN python3.8 -m pip install dist/amiyabot-0.0.1-*-py3-none-any.whl
 
 WORKDIR /amiyabot
 
-COPY ./Amiya-Bot/ .
+COPY ../Amiya-Bot/ .
 
 COPY docker_start.sh .
 
