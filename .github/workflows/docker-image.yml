@@ -22,7 +22,10 @@ jobs:
         repository: 'AmiyaBot/Amiya-Bot-core'
         path: Amiya-Bot-core
 
-    - uses: actions/checkout@v3
+    - name: Checkout Amiya-Bot-docker
+      uses: actions/checkout@v3
+      with:
+        path: Amiya-Bot-docker
 
     - name: List files and directories
       run: |
@@ -37,4 +40,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag hsyhhssyy/amiyabot:$(date +%s)
+      run: docker build . --file Amiya-Bot-docker/Dockerfile --tag hsyhhssyy/amiyabot:$(date +%s)
