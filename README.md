@@ -27,9 +27,7 @@ docker run -dit --name amiya-bot --restart=always -p 5080:5080 -p 5443:5443 -v a
 这将会启动Amiya-Bot，并暴露5080和5443端口。同时，它会将Docker卷映射到容器内的指定目录。
 
 ## 如何贡献
-我们欢迎所有形式的贡献，无论是新功能的建议，代码贡献，还是文档的改进。请阅读[贡献指南](链接到贡献指南)来了解如何开始。
-
-## 贡献者列表
+我们欢迎所有形式的贡献，无论是新功能的建议，代码贡献，还是文档的改进。感谢下面这些朋友的共享：
 
 [![Contributors](https://contributors-img.web.app/image?repo=hsyhhssyy/Amiya-Bot-docker&max=114514&columns=15)](https://github.com/hsyhhssyy/Amiya-Bot-docker/graphs/contributors)
 

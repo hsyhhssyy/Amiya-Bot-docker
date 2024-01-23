@@ -107,6 +107,8 @@ WORKDIR /amiyabot-core
 RUN echo "n\n0.0.1" > inputs.txt && \
     python3.8 setup.py bdist_wheel < inputs.txt
 
+RUN ls -ltr dist/
+
 # 版本更新后，脚本将会变更，届时修改切换注释即可
 # RUN python3.8 -m pip install dist/amiyabot-0.0.1-*-py3-none-any.whl
 RUN python3.8 -m pip install dist/amiyabot-0.0.1-py3-none-any.whl
