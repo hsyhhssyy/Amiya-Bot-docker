@@ -58,7 +58,6 @@ RUN python3.8 -m playwright install --with-deps
 
 # 适当添加一些安装的比较久的lib
 
-RUN python3.8 -m pip install paddleocr
 
 # paddlespeech 报错 AttributeError: module 'numpy' has no attribute 'complex'.
 # 需要降低numpy的版本
@@ -66,6 +65,8 @@ RUN python3.8 -m pip install paddleocr
 # RUN python3.8 -m pip install paddlenlp==2.5.0
 RUN python3.8 -m pip install paddlepaddle==2.4.2
 # RUN python3.8 -m pip install paddlespeech==1.4.1
+
+RUN python3.8 -m pip install paddleocr
 
 # 预先安装paddle的一系列内容
 RUN echo "from paddleocr import PaddleOCR" > paddle_init.py && \
